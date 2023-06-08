@@ -1,8 +1,3 @@
-name: script
-on : [push]
+#!/bin/bash
 
-jobs:
-  myscript-job:
-    runs-on: ubuntu-latest
-    steps:
-    - run: npm install -g bats
+echo "Hello World"
