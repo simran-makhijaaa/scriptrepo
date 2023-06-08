@@ -1,0 +1,9 @@
+name: scriptrun
+on : [push]
+jobs:
+  my_scriptrun_job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Run build script
+        run: jackson-k-action/.github/workflows/scripts/build.sh
+        shell: bash
