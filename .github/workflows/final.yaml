@@ -12,4 +12,12 @@ jobs:
         run: chmod +x scripts/build.sh
       - name: Run build script
         run: ./scripts/build.sh
-        shell: bash
+        shell: bash        
+  my_python_script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name : run build script
+        run: ./scripts/python.py
+        shell: python 
+        
