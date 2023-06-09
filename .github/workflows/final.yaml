@@ -3,7 +3,17 @@ on:
   push:
     branches:
       - main
-jobs:    
+jobs: 
+  my_scriptrun_job:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - name: Give execute permission
+        run: chmod +x scripts/build.sh
+      - name: Run build script
+        run: ./scripts/build.sh
+        shell: bash    
+        
   my_python_script:
     runs-on: ubuntu-latest
     steps:
