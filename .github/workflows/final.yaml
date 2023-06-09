@@ -17,7 +17,7 @@ jobs:
   my_python_script:
     runs-on: ubuntu-latest
     steps:
-      - uses: actionscheckout@v3
+      - uses: actions/checkout@v3
       - name : run python script
         run: ./scripts/python.py
         shell: python
