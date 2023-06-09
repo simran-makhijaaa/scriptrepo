@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name : run python script
-        run: ./scripts/python.py
-        shell: python
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+      - name: Run python script
+        run: python scripts/python.py
         
