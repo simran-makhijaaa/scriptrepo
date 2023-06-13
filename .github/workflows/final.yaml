@@ -4,8 +4,8 @@ on:
     branches:
       - main
 env:
-  myname: simran
-  gender: female
+  myname: ${{ simran }}
+  gender: ${{ female }}
 jobs: 
   environment_job:
     runs-on: ubuntu-latest
