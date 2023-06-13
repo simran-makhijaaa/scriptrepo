@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: display environment
         run: |
-          echo: my name is ${{ env.myname }}
-          echo: i am a  ${{ env.gender }}
+          echo "my name is ${{ env.myname }}"
+          echo "i am a  ${{ env.gender }}"
         shell: bash
           
     
