@@ -3,7 +3,21 @@ on:
   push:
     branches:
       - main
+env:
+  myname: simran
+  gender: female
 jobs: 
+  environment_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display environment
+        run: |
+          echo: my name is ${{ env.myname }}
+          echo: i am a  ${{ env.gender }}
+          shell: bash
+          
+    
+  
 #   my_scriptrun_job:
 #     runs-on: ubuntu-latest
 #     steps: 
@@ -14,14 +28,13 @@ jobs:
 #         run: ./scripts/build.sh
 #         shell: bash    
         
-  add_num_script:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.10' 
-      - name: Run python script
-        run: python scripts/addnum.py
+#  add_num_script:
+ #   runs-on: ubuntu-latest
+  #  - uses: actions/checkout@v3
+   #   - uses: actions/setup-python@v4
+    #    with:
+     #     python-version: '3.10' 
+      #- name: Run python script
+       # run: python scripts/addnum.py
  
         
