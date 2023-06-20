@@ -3,17 +3,17 @@ on:
   push:
     branches:
       - main
-env:
-  myname: simran 
-  gender: female 
+#env:
+ # myname: simran 
+  # gender: female 
 jobs: 
   environment_job:
     runs-on: ubuntu-latest
     steps:
       - name: display environment
         run: |
-          echo "my name is ${{ env.myname }}"
-          echo "i am a  ${{ env.gender }}"
+          # echo "my name is ${{ env.myname }}"
+          echo "this is running inside ${{ runner.os }} server"
         shell: bash
           
     
