@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: display environment
         run: |
-          # echo "my name is ${{ env.myname }}"
           echo "this is running inside ${{ runner.os }} server"
         shell: bash
           
