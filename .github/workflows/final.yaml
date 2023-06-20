@@ -10,14 +10,14 @@ jobs:
   environment_job:
     runs-on: ubuntu-latest
     steps:
-      - name: display environment
-        run: |
-          echo "this is running inside ${{ runner.os }} server"
+      #- name: display environment
+       # run: |
+        #  echo "this is running inside ${{ runner.os }} server"
       - name: checkout
       - uses: actions/checkout@v3.5.3
       - run: echo ""this repo is ${{ github.repository }} .."
         shell: bash
-   
+    
         
         
 
