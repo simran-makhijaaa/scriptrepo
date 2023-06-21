@@ -1,20 +1,30 @@
-name: Hi simran
-on: push
+name: Hi 
+on:
+  workflow_dispatch:
 env:
-  simran: sim
-  super_var: awsome
-  
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+
 jobs:
-  windows_job:
-    runs-on: windows-latest
+  display-variables:
+    name: ${{ vars.JOB_NAME }}
+    if: ${{ vars.USE_VARIABLES == 'true' }}
+    runs-on: ${{ vars.RUNNER }}
+    environment: ${{ vars.ENVIRONMENT_STAGE }}
     steps:
-      - run: echo 'Hi ${{ env.simran }}'  
-      - run: echo 'Hi ${{ env.simran }}'  
-        # env:
-          # simran: Octocat
-  linux_job:
-    runs-on: ubuntu-latest
-    env:
-      simran: Tux
-    steps:
-      - run: echo 'Hi ${{ env.simran }}'
+    - name: Use variables
+      run: |
+        echo "repository variable : $REPOSITORY_VAR"
+        echo "organization variable : $ORGANIZATION_VAR"
+        echo "overridden variable : $OVERRIDE_VAR"
+        echo "variable from shell environment : $env_var"
+      env:
+        REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
+        ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
+        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
+        
+    - name: ${{ vars.HELLO_WORLD_STEP }}
+      if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
+      uses: actions/hello-world-javascript-action@main
+      with:
+        who-to-greet: ${{ vars.GREET_NAME }}
+
