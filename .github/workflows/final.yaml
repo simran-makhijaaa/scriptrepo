@@ -1,18 +1,20 @@
-name: Run CI
-on: [push, pull_request]
-
+name: Hi simran
+on: push
+env:
+  simran: sim
+  super_var: awsome
+  
 jobs:
-  normal_ci:
-    runs-on: ubuntu-latest
+  windows_job:
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Run normal CI
-        run: scripts/run-tests
-
-  pull_request_ci:
+      - run: echo 'Hi ${{ env.simran }}'  
+      - run: echo 'Hi ${{ env.simran }}'  
+        env:
+          simran: Octocat
+  linux_job:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
+    env:
+      simran: Tux
     steps:
-      - uses: actions/checkout@v3
-      - name: Run PR CI
-        run: ./run-additional-pr-ci
+      - run: echo 'Hi ${{ env.simran }}'
