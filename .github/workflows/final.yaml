@@ -1,6 +1,5 @@
 name: Hi 
-on:
-  workflow_dispatch:
+on: push
 env:
   env_var: ${{ vars.ENV_CONTEXT_VAR }}
 
