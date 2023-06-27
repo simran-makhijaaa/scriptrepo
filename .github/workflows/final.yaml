@@ -5,7 +5,7 @@ name: Check all English links
 # **Who does it impact**: Docs content.
 
 on:
-  workflow_dispatch:
+  push:
   schedule:
     - cron: '*/1 * * * *' 
 
