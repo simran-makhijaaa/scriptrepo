@@ -8,13 +8,4 @@ jobs:
       - name: addnumfile
       - run: ./scripts/build.sh
         shell: bash
-  build:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - run: ./scripts/addnum.py
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: ./scripts/addnum.py
+ 
