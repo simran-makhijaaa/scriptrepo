@@ -5,7 +5,7 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - run: ./build.sh
+      - run: ./addnum.py
   build:
     needs: setup
     runs-on: ubuntu-latest
