@@ -5,8 +5,9 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - run: chmod +x scripts/addnum.py
+      - name: addnumfile
       - run: ./scripts/addnum.py
+        shell: bash
   build:
     needs: setup
     runs-on: ubuntu-latest
