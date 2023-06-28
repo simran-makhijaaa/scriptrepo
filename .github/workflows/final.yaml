@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: addnumfile
+        uses: actions/upload-artifact@v3
       - run: ./scripts/build.sh
         shell: bash
  
