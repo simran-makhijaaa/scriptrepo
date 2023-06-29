@@ -1,29 +1,16 @@
 name: learn-github-actions
 run-name: database
-on: push 
-jobs:
-  container-job:
-    runs-on: ubuntu-latest
-    container: node:10.18-jessie
-    services:
-      postgres:
-        image: postgres
-    
-    steps:  
-     - name: get version
-         id: version
-         uses: notiz-dev/github-action-json-property@release
-         with: 
-            path: 'package.json'
-            prop_path: 'version'
-    -  run: echo ${{steps.version.outputs.prop}} 
+on:
+  issues:
+    types:
+      - opened
 
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Install dependencies
-        run: npm ci
-      - name: Connect to PostgreSQL
-        run: node client.js
-        env:
-          POSTGRES_HOST: postgres
-          POSTGRES_PORT: 5432
+jobs:
+  label_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          gh issue edit $ISSUE_URL --add-label "triage"
