@@ -1,5 +1,5 @@
 name: learn-github-actions
-run-name: matrixrun
+run-name: cahing dependies
 on: push 
 jobs:
   caching-dependies:
