@@ -2,13 +2,15 @@ name: learn-github-actions
 run-name: matrixrun
 on: push 
 jobs:
-  build:
+  caching-dependies:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [12, 14, 16]
-        os: [ubuntu-latest, windows-latest]
     steps:
-      - uses: actions/setup-node@v3
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
         with:
-          node-version: ${{ matrix.node }}
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
