@@ -1,16 +1,20 @@
 name: learn-github-actions
-run-name: cahing dependies
+run-name: database
 on: push 
 jobs:
-  caching-dependies:
+  container-job:
     runs-on: ubuntu-latest
+    container: node:10.18-jessie
+    services:
+      postgres:
+        image: postgres
     steps:
-      - name: Cache node modules
-        uses: actions/cache@v3
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Connect to PostgreSQL
+        run: node client.js
         env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: 5432
