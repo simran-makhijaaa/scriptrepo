@@ -1,7 +1,6 @@
 name: learn-github-actions
-run-name: database
-on:
-  fork
+run-name: using multiple event
+on: [push, fork]
 jobs:
   label_issue:
     runs-on: ubuntu-latest
