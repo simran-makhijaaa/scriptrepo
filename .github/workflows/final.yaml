@@ -1,12 +1,21 @@
-name: learn-github-actions
-run-name: using multiple event
-on: [push, fork]
+name: Label issues
+on:
+  issues:
+    types:
+      - reopened
+      - opened
 jobs:
-  label_issue:
+  label_issues:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
-      - env:
-          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
-        run: |
-          gh issue edit $ISSUE_URL --add-label "triage"
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["triage"]
+            })
