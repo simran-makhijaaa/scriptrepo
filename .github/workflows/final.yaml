@@ -1,10 +1,7 @@
 name: learn-github-actions
 run-name: database
 on:
-  issues:
-    types:
-      - opened
-
+  fork
 jobs:
   label_issue:
     runs-on: ubuntu-latest
