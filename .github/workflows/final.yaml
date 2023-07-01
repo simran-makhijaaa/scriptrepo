@@ -1,9 +1,8 @@
 name: Label issues
 on:
-  issues:
+  label:
     types:
-      - reopened
-      - opened
+      - created
 jobs:
   label_issues:
     runs-on: ubuntu-latest
