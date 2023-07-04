@@ -1,8 +1,8 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on:
-  branch_protection_rule:
-    types: [created, deleted]
+  check_run:
+    types: [rerequested, completed]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
