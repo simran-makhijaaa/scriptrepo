@@ -1,13 +1,17 @@
-name: tags
-
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   push:
-    # Sequence of patterns matched against refs/heads
-    branches:    
-      - main
-      - 'mona/octocat'
-      - 'releases/**'
-    # Sequence of patterns matched against refs/tags
     tags:        
       - v2
       - v1.*
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
