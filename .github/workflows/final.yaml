@@ -1,15 +1,20 @@
 name: learn-github-actions
 run-name: making ev
-on:
-  push
+on: push
 jobs:
-  bash-example:
+  generate-a-secret-output:
     runs-on: ubuntu-latest
-    env:
-      MY_NAME: "simran karan kumar"
     steps:
-      - name: bash-version
-        run: echo "::add-mask::$MY_NAME"
+      - id: sets-a-secret
+        name: Generate, mask, and output a secret
+        run: |
+          the_secret=$((RANDOM))
+          echo "::add-mask::$the_secret"
+          echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
+      - name: Use that secret output (protected by a mask)
+        run: |
+          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
+
 
 
 
