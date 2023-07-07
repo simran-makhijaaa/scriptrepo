@@ -6,10 +6,8 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-     - name: workflow command 
-       id: step_one
-       run: |
-         echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
-     
+      - name: Create annotation for build error
+        run: echo "::error file=app.js,line=1::Missing semicolon"
+
 
 
