@@ -10,6 +10,8 @@ jobs:
         run: |
             echo "::group::My title"
             echo "Inside group"
+            echo "outside group"
+            echo "group in  group"
             echo "::endgroup::"
 
 
