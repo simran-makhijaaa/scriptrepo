@@ -1,12 +1,12 @@
 name: learn-github-actions
-run-name: grouping
+run-name: making ev
 on:
   push
 jobs:
   bash-example:
     runs-on: ubuntu-latest
     env:
-      MY_NAME: "Mona The Octocat"
+      MY_NAME: "simran karan kumar"
     steps:
       - name: bash-version
         run: echo "::add-mask::$MY_NAME"
