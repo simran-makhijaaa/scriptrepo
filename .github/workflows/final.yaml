@@ -6,9 +6,10 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+     - name: workflow command 
+       id: step_one
+       run: |
+         echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+     
+
+
