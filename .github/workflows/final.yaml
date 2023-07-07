@@ -1,13 +1,13 @@
 name: learn-github-actions
-run-name: creating error
+run-name: debug message
 on:
   push
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Create annotation for build error
-        run: echo "::error file=app.js,line=1::Missing semicolon"
+      - name: setting debug message
+        run: echo "::debug::Set the Octocat variable"
 
 
 
