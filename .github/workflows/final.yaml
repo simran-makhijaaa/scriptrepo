@@ -5,15 +5,13 @@ jobs:
   generate-a-secret-output:
     runs-on: ubuntu-latest
     steps:
-      - id: sets-a-secret
-        name: Generate, mask, and output a secret
+      - name: Set the value in bash
+        id: step_one
         run: |
-          the_secret=$((RANDOM))
-          echo "::add-mask::$the_secret"
-          echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
-      - name: Use that secret output (protected by a mask)
-        run: |
-          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "JSON_RESPONSE<<$EOF" >> "$GITHUB_ENV"
+          curl https://example.com >> "$GITHUB_ENV"
+          echo "$EOF" >> "$GITHUB_ENV"
 
 
 
