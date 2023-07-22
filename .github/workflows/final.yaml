@@ -10,5 +10,5 @@ jobs:
         run: |
             echo "::group::My title"
             echo "Inside group"
-            echo ""how are you"
+            echo "how are you"
             echo "::endgroup::"
