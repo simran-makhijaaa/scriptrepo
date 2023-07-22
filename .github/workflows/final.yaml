@@ -1,4 +1,4 @@
-name: github actions
+name: github-actions
 run-name: message debuging
 on:
   push
