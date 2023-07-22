@@ -1,21 +1,11 @@
-name: learn-github-actions
-run-name: making ev
-on: push
+name: github actions
+run-name: message debuging
+on:
+  push
 jobs:
-  generate-a-secret-output:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Set the value in bash
-        id: step_one
-        run: |
-          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-          echo "JSON_RESPONSE<<$EOF" >> "$GITHUB_ENV"
-          curl https://example.com >> "$GITHUB_ENV"
-          echo "$EOF" >> "$GITHUB_ENV"
-
-
-
-
-
-
+      - name: setting debug message
+        run: echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
