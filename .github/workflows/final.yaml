@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: setting debug message
-        run: echo "::error file=app.js,line=1,col=5,endColumn=9::Missing semicolon"
+        run: echo "::error file=app.js,line=3,col=5,endColumn=9::Missing semicolon"
 
