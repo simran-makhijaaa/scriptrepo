@@ -3,9 +3,11 @@ run-name: message debuging
 on:
   push
 jobs:
-  check-bats-version:
+  bash-example:
     runs-on: ubuntu-latest
     steps:
-      - name: setting debug message
-        run: echo "::error file=app.js,line=3,col=5,endColumn=9::Missing semicolon"
-
+      - name: Group of log lines
+        run: |
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::"
