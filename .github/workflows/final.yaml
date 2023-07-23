@@ -8,5 +8,5 @@ jobs:
         env: 
           WHO_TO_TRUST: ${{ secrets.ADD_MASK }}
         if:  env.WHO_TO_TRUST == 'TrustNo1'
-         run:|
+         run:| 
          echo "I know what the secret token is!"
