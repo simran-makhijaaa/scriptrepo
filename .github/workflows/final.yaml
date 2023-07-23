@@ -4,9 +4,9 @@ jobs:
   generate-a-secret-output:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate a secret
-        env:
-          DEVOPS: ${{ secrets.ADD_MASK }}
-        run: |
-            echo "$DEVOPS"
-      
+      - name: Step 2 - GitHub Action if statement (true)
+        env: 
+          WHO_TO_TRUST: ${{ secrets.SECRET_TOKEN }}
+        if:  env.WHO_TO_TRUST == 'TrustNo1'
+         run:|
+           echo "I know what the secret token is!"
