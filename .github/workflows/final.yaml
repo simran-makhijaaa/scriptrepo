@@ -23,7 +23,7 @@ jobs:
       with:
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}
-    - name: use secret
+    - name: use-secret
       shell: bash
       run: |
         SECRET_HANDLE="${{ needs.secret-generator.outputs.handle }}"
