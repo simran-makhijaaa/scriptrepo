@@ -8,7 +8,7 @@ jobs:
       with:
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}
-    - name: generate secret
+    - name: generate-secret
       shell: bash
       run: |
         GENERATED_SECRET=$((RANDOM))
