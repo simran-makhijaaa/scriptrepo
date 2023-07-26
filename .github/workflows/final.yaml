@@ -1,6 +1,5 @@
 name: github-actions
-run-name: Set color
-
+run-name: Generate list using Markdown
 on: push
 
 jobs:
