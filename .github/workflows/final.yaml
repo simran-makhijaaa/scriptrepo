@@ -1,5 +1,7 @@
 name: github-actions
+
 on: push
+
 jobs:
   workflow-command-job:
     runs-on: ubuntu-latest
