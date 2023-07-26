@@ -1,4 +1,5 @@
 name: github-actions
+run-name: set and use value
 
 on: push
 
