@@ -11,13 +11,11 @@ on:
         required: true
 
 jobs:
-  workflow-command-job:
+  reusable_workflow_job:
     runs-on: ubuntu-latest
+    environment: production
     steps:
-     - name: Generate list using Markdown
-       run: |
-        echo "This is the lead in sentence for the list" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
-        echo "- Lets add a bullet point" >> $GITHUB_STEP_SUMMARY
-        echo "- Lets add a second bullet point" >> $GITHUB_STEP_SUMMARY
-        echo "- How about a third one?" >> $GITHUB_STEP_SUMMARY
+    - uses: actions/labeler@v4
+      with:
+        repo-token: ${{ secrets.envPAT }}
+        configuration-path: ${{ inputs.config-path }}
