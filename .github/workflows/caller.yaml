@@ -10,14 +10,14 @@ on:
 
 jobs:
   call-workflow-A:
-    uses: .github/workflows/final.yaml@main
+    uses: ..github/workflows/final.yaml@main
     with:
       username: simran
     secrets:
       token: ${{ secrets.TOKEN }}
 
   call-workflow-B:
-    uses: .github/workflows/final.yaml@main
+    uses: ..github/workflows/final.yaml@main
     with:
       username: simran2
     secrets:
