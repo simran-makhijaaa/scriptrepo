@@ -10,14 +10,14 @@ on:
 
 jobs:
   call-workflow-A:
-    uses: .simran-makhijaaa/scriptrepo/.github/workflows/final.yaml@main
+    uses: simran-makhijaaa/scriptrepo/.github/workflows/final.yaml@main
     with:
       username: simran
     secrets:
       token: ${{ secrets.TOKEN }}
 
   call-workflow-B:
-    uses: .simran-makhijaaa/scriptrepo/.github/workflows/final.yaml@main
+    uses: simran-makhijaaa/scriptrepo/.github/workflows/final.yaml@main
     with:
       username: simran2
     secrets:
