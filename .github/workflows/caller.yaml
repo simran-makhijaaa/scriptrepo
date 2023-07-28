@@ -1,12 +1,8 @@
 name: resusable-workflow-caller
 
 on:
-  workflow_call:
-    inputs: 
-      config-path:
-        required: true
-        type: string
-
+  push:
+    
 jobs:
   call-workflow-A:
     uses: simran-makhijaaa/scriptrepo/.github/workflows/final.yaml@main
