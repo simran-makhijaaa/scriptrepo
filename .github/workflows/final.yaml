@@ -1,5 +1,5 @@
 name: github-actions
-run-name: Generate list using Markdown
+run-name: reuseable
 on:
   workflow_call:
     inputs:
@@ -13,9 +13,7 @@ on:
 jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
-    environment: production
     steps:
-    - uses: actions/labeler@v4
-      with:
-        repo-token: ${{ secrets.envPAT }}
-        configuration-path: ${{ inputs.config-path }}
+    - name: helo world
+      run: |
+        echo "hello, ${{ input.username }}"
