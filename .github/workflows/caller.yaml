@@ -6,8 +6,6 @@ on:
   pull_request:
     branches: none 
 
-  workflow_dispatch:
-
 jobs:
   call-workflow-A:
     uses: simran-makhijaaa/scriptrepo/.github/workflows/final.yaml@main
