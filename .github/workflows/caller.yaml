@@ -1,8 +1,5 @@
 name: resusable-workflow-caller
-
-on:
-  push:
-    
+on : push
 jobs:
   call-workflow-A:
     uses: simran-makhijaaa/scriptrepo/.github/workflows/final.yaml@main
